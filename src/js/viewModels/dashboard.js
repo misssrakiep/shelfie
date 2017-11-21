@@ -7,12 +7,20 @@
  */
 define(['ojs/ojcore', 'knockout', 'jquery'],
  function(oj, ko, $) {
-  
+
     function DashboardViewModel() {
       var self = this;
       // Below are a subset of the ViewModel methods invoked by the ojModule binding
       // Please reference the ojModule jsDoc for additional available methods.
+self.books = ko.observable([
+  {"title" : "Harry Potter and The Order Of the Phoenix", "author" : "JK Rowling"},
+  {"title" : "Da Vinci Code" , "author" : "Dan Brown"}
+]
+);
 
+swap = function() {
+  alert('This book has been added to your swap list. Thank you!')
+}
       /**
        * Optional ViewModel method invoked when this ViewModel is about to be
        * used for the View transition.  The application can put data fetch logic
@@ -43,7 +51,7 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
 
 
       /**
-       * Optional ViewModel method invoked after the bindings are applied on this View. 
+       * Optional ViewModel method invoked after the bindings are applied on this View.
        * If the current View is retrieved from cache, the bindings will not be re-applied
        * and this callback will not be invoked.
        * @param {Object} info - An object with the following key-value pairs:
@@ -67,6 +75,7 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
       };
     }
 
+
     /*
      * Returns a constructor for the ViewModel so that the ViewModel is constructed
      * each time the view is displayed.  Return an instance of the ViewModel if
@@ -75,3 +84,19 @@ define(['ojs/ojcore', 'knockout', 'jquery'],
     return new DashboardViewModel();
   }
 );
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}

@@ -2,9 +2,42 @@
  Copyright (c) 2014, 2017, Oracle and/or its affiliates.
  The Universal Permissive License (UPL), Version 1.0
  -->
+ <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+ <style media="screen">
+
+ </style>
+ <link rel="" href="/css/master.css">
+<center><h1 style="font-family: 'Dancing Script', cursive;">Shelfie</h1></center>
 <div class="oj-hybrid-padding">
-  <h1>Dashboard Content Area</h1>
-  <div>
-      To change the content of this section, you will make edits to the dashboard.html file located in the /js/views folder.
+  <h2>The Book Shelf:</h2>
+  <div class="bookItem">
+    <span>
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for book.." title="Type in the book titte">
+    </span>
+    <oj-list-view id="listview" aria-label="list with static data">
+                <ul data-bind="foreach: books" id="myUL">
+                    <li id="amybartlet">
+                        <span class="avatar" style="background-image: url('images/dvt/1.png')"></span>
+                        <div class="container">
+                            <div>
+                              <a style="text-decoration: none; color: black"><span id="title" data-bind="text: title"></span></a>
+                            </div>
+                            <div>
+                              <a style="text-decoration: none; color: black"><span class="oj-text-xs oj-text-secondary-color" id="author" data-bind="text: author"></span> </a>
+                            </div>
+                            <div class="swapBtn">
+                              <span data-bind="click: swap">
+                                <button type="button" name="button">Swap this book</button>
+                              </span>
+                            </div>
+                        </div>
+                    </li>
+                  </ul>
+                  </oj-list-view>
+
+
+
+
   </div>
 </div>
+<script src="dashboard" charset="utf-8"></script>
